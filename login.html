@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mentoring</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .bg-pattern-style { display: flex; align-items: center; justify-content: center; height: 100vh; background-color: #f7f7f7; }
+        .account-box { max-width: 400px; width: 100%; background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="account-page">
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <div class="bg-pattern-style">
+            <div class="content">
+                <!-- Login Form -->
+                <div class="account-box">
+                    <div class="login-right">
+                        <div class="login-header text-center">
+                            <div class="account-logo">
+                                <a href="index.html">
+                                    <img src="assets/img/logo-8.png" alt="Logo">
+                                </a>
+                            </div>
+                            <h3>Acesso <span>Mentoria</span></h3>
+                            <p class="text-muted">Acesso ao nosso Painel</p>
+                        </div>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label class="form-control-label">Email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">Senha</label>
+                                <div class="pass-group">
+                                    <input type="password" id="password" class="form-control pass-input" required>
+                                    <span class="fas fa-eye toggle-password"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">Tipo de Acesso</label>
+                                <select id="userType" class="form-control" required>
+                                    <option value="mentor">Mentor</option>
+                                    <option value="mentorado">Mentorado</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary login-btn" type="submit">Acesso</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- /Login Form -->
+            </div>
+        </div>      
+    </div>
+    <!-- /Main Wrapper -->
+  
+    <!-- jQuery -->
+    <script src="assets/js/jquery-3.7.0.min.js"></script>
+    
+    <!-- Bootstrap Core JS -->
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Previne o envio padrão do formulário
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const userType = document.getElementById('userType').value;
+
+            // Lógica simples de autenticação simulada
+            if (userType === 'mentor') {
+                // Redireciona para o painel de mentor
+                window.location.href = 'dashboard.html';
+            } else if (userType === 'mentorado') {
+                // Redireciona para o painel de mentorado
+                window.location.href = 'dashboard-mentee.html';
+            } else {
+                alert('Seleção de tipo de acesso inválida!');
+            }
+        });
+    </script>
+</body>
+</html>
